@@ -1,0 +1,31 @@
+﻿@page
+@model BelajarRazor.Pages.Categories.EditModel
+<form method="post">
+    <div class"p-3 mt-4 border">
+        <div class="row pb-2">
+            <div class="text-primary pl-3 h2">Edit Category</div>
+            <hr />
+        </div>
+        @*<div asp-validation-summary="All"></div>*@
+        <div class="mb-3">
+            <label asp-for="Category.Name">Name</label>
+            <input asp-for="Category.Name" type="text"/>
+            <span asp-validation-for="Category.Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Category.DisplayOrder">DisplayOrder</label>
+            <input asp-for="Category.DisplayOrder" type="text"/>
+            <span asp-validation-for="Category.DisplayOrder" class="text-danger"></span>
+        </div>
+            <input asp-for="Category.Id" type="hidden" />
+        <div class="mb-3">
+            <button type="submit" class="btn btn-outline-success">Update</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

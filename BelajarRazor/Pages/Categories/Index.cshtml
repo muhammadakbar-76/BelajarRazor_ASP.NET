@@ -1,0 +1,38 @@
+﻿@page
+@model BelajarRazor.Pages.Categories.IndexModel
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-10">
+            <h2 class="text-primary">Category List</h2>
+        </div>
+        <div class="col-2">
+            <a asp-page="create" class="btn btn-primary">Add New Category</a>
+        </div>
+    </div>
+
+    <br/> <br/>
+   
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Category Name</th>
+                <th>Display Order</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach (var item in Model.Categories)
+                {
+                    <tr>
+                     <td>@item.Name</td>
+                     <td>@item.DisplayOrder</td>
+                     <td>
+                         <a asp-page="Edit" asp-route-Id="@item.Id" class="btn btn-outline-warning mr-2">Edit</a>
+                         <a asp-page="Delete" asp-route-Id="@item.Id" class="btn btn-outline-danger">Delete</a>
+                     </td>
+                    </tr>
+                }
+        </tbody>
+    </table>
+</div>
